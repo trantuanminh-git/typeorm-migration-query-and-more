@@ -70,5 +70,7 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 ## License
 
+NA
 nestjs  
 migration  
+https://www.youtube.com/watch?v=sNosL578ECo 

@@ -14,13 +14,25 @@ export class PetService {
   ) {}
 
   async create(createPetDto: CreatePetDto) {
-    const user = await this.usersRepository.findOneBy({ id: 3 });
+    const user = await this.usersRepository.findOneBy({
+      id: createPetDto.id,
+    });
 
-    const newPet = this.petsRepository.create(createPetDto);
-    newPet.owner = user;
+    const newPet = new Pet(createPetDto.name, user);
+
     await this.petsRepository.save(newPet);
     return `This action adds a user's ${user.id} new pet`;
   }
+  // async create(createPetDto: CreatePetDto, id: number) {
+  //   const user = await this.usersRepository.findOneBy({ id: 3 });
+
+  //   const pet = new Pet(createPetDto.name, user);
+
+  //   const newPet = this.petsRepository.create(createPetDto);
+  //   newPet.owner = user;
+  //   await this.petsRepository.save(newPet);
+  //   return `This action adds a user's ${user.id} new pet`;
+  // }
 
   findAll() {
     return `This action returns all pet`;
